@@ -1,0 +1,24 @@
+services:
+  daemon:
+    image: transmission-nordvpn
+    container_name: transmission
+    build:
+      context: .
+    ports:
+      - 9091:9091
+    command:
+      - /bin/sh
+      - -c
+      - |
+        cp /etc/transmission-daemon/settings.json $$TRANSMISSION_HOME/
+        transmission-daemon -f --log-level=info
+    cap_add:
+      - NET_ADMIN
+    sysctls:
+      net.ipv6.conf.all.disable_ipv6: 1
+    environment:
+      - NORDVPN_TOKEN=${TOKEN:-}
+      - NORDVPN_CONNECT=jp
+    volumes:
+      - ./settings.json:/etc/transmission-daemon/settings.json
+      - ./downloads:/var/lib/transmission/downloads
