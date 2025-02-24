@@ -29,6 +29,14 @@ make run
 - `transmission`: [Transmission](https://transmissionbt.com/) BitTorrent daemon over NordVPN connection.
 - `tinyproxy`: [Tinyproxy](https://tinyproxy.github.io/) HTTP/HTTPS proxy server over NordVPN connection.
 
+All of the utilities are using Docker Compose to manage the services.
+You can start the services with following command.
+
+```bash
+docker-compose build
+docker-compose up -d
+```
+
 ## Known Issues
 
 ### WSL
