@@ -1,0 +1,17 @@
+services:
+  proxy:
+    image: tinyproxy-nordvpn
+    container_name: tinyproxy
+    build:
+      context: .
+    ports:
+      - 8888:8888
+    cap_add:
+      - NET_ADMIN
+    sysctls:
+      net.ipv6.conf.all.disable_ipv6: 1
+    environment:
+      - NORDVPN_TOKEN=${TOKEN:-}
+      - NORDVPN_CONNECT=jp
+    volumes:
+      - ./tinyproxy.conf:/etc/tinyproxy/tinyproxy.conf

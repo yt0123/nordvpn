@@ -27,6 +27,7 @@ make run
 ## Utilities
 
 - `transmission`: [Transmission](https://transmissionbt.com/) BitTorrent daemon over NordVPN connection.
+- `tinyproxy`: [Tinyproxy](https://tinyproxy.github.io/) HTTP/HTTPS proxy server over NordVPN connection.
 
 ## Known Issues
 
